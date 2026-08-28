@@ -12,7 +12,7 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 const rootDir = path.resolve(__dirname, '..')
 const port = Number(process.env.PORT || 4000)
-const databaseFile = process.env.DATABASE_FILE || './backend/data/codeforge.db'
+const databaseFile = process.env.DATABASE_FILE || (process.env.VERCEL ? '/tmp/codeforge.db' : './backend/data/codeforge.db')
 
 await initDatabase(path.resolve(rootDir, databaseFile))
 
