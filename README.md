@@ -8,12 +8,6 @@ CodeForge is a full-stack interactive productivity workspace inspired by the Not
 
 The application also includes the surprise challenge **“Text that reacts to Cursor”**, where the main hero heading responds dynamically to mouse movement with subtle motion, tilt, and visual effects.
 
-## Hackathon Participation
-
-This project was built as part of my participation in **CodeForge 2.0 Hackathon at VIT Chennai**.
-
-The challenge focused on recreating a provided website, making the interface interactive, and implementing a surprise feature revealed during the event. In addition to the required frontend recreation, I extended the project with a functional backend, authentication, persistent workspace logic, and deployment.
-
 ## Key Features
 
 - Responsive Notion-inspired landing page
