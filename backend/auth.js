@@ -1,6 +1,12 @@
 import jwt from 'jsonwebtoken'
 
-const secret = () => process.env.JWT_SECRET || 'codeforge-local-development-secret-change-me'
+import { randomBytes } from 'node:crypto'
+const configuredSecret = process.env.JWT_SECRET
+if ((process.env.NODE_ENV === 'production' || process.env.VERCEL) && (!configuredSecret || configuredSecret.length < 32)) {
+  throw new Error('Set JWT_SECRET to at least 32 random characters before deployment.')
+}
+const localSecret = randomBytes(48).toString('hex')
+const secret = () => configuredSecret || localSecret
 
 export function signToken(user) {
   return jwt.sign(

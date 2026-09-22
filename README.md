@@ -1,39 +1,13 @@
-# CodeForge
+# CodeForge — productivity workspace
 
-**Live Deployment:** https://codeforge-2026.vercel.app
+React/Vite workspace with Express, JWT sessions, SQLite/sql.js persistence, per-user pages, demo requests and optional external summarization.
 
-## Project Description
+## Run locally
 
-CodeForge is a full-stack interactive productivity workspace inspired by the Notion web experience. The project recreates the reference website with a responsive React + Vite frontend, interactive navigation, animated product sections, use-case popups, authentication, workspace page management, and a Node.js + Express backend.
+Copy `.env.example` to `.env`; set a random JWT_SECRET (at least 32 characters). Run `npm ci` and `npm run dev`. For a single long-running server, run `npm run build` then `npm start`.
 
-The application also includes the surprise challenge **“Text that reacts to Cursor”**, where the main hero heading responds dynamically to mouse movement with subtle motion, tilt, and visual effects.
+## Status and limits
 
-## Key Features
+Use a persistent writable disk and one backend process for sql.js. Vercel /tmp storage is ephemeral and is not durable multi-instance storage. Without external AI configuration the summary is an explicitly labelled local fallback. Public production use requires rate limiting and a durable shared database.
 
-- Responsive Notion-inspired landing page
-- Cursor-reactive hero text
-- Interactive navigation and mega menus
-- Animated product/workspace demonstrations
-- Use-case cards with centered popup details
-- Detailed Request Demo workflow
-- User signup and login
-- JWT-based authentication
-- bcrypt password hashing
-- Workspace page create, edit, save, and delete operations
-- AI summary endpoint with API-ready integration
-- Mobile-responsive interface
-- Full-stack deployment setup
-
-## Tech Stack
-
-**Frontend:** React, Vite, JavaScript, CSS, Lucide React  
-**Backend:** Node.js, Express  
-**Authentication:** JWT, bcryptjs  
-**Database:** SQLite / sql.js  
-**Deployment:** Vercel
-
-## Live Demo
-
-Visit the deployed project here:
-
-**https://codeforge-2026.vercel.app**
+See [REPOSITORY_STATUS.md](REPOSITORY_STATUS.md) for the verification scope and remaining work.
