@@ -154,6 +154,7 @@ app.post('/api/ai/summarize', requireAuth, async (req, res) => {
   try {
     const response = await fetch(url, {
       method: 'POST',
+      signal: AbortSignal.timeout(30000),
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${key}`,

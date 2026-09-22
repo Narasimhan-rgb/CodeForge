@@ -65,7 +65,9 @@ export async function initDatabase(filePath) {
 export function persistDatabase() {
   if (!db || !databasePath) return
   const bytes = db.export()
-  fs.writeFileSync(databasePath, Buffer.from(bytes))
+  const temporaryPath = `${databasePath}.tmp`
+  fs.writeFileSync(temporaryPath, Buffer.from(bytes))
+  fs.renameSync(temporaryPath, databasePath)
 }
 
 export function all(sql, params = []) {
